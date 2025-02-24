@@ -1,6 +1,5 @@
-// =========================
 // Firebase Configuration & Book Log Functionality
-// =========================
+
 const firebaseConfig = {
     apiKey: "AIzaSyA5IM05om6Tc-KJbdwY7ZcEErdDfmTyumw",
     authDomain: "booklogapp-35f3d.firebaseapp.com",
@@ -15,9 +14,7 @@ const firebaseConfig = {
   const db = firebase.database();
   const booksRef = db.ref('books');
   
-// =========================
 // DOM Element References
-// =========================
   const bookForm = document.getElementById('bookForm');
   const titleInput = document.getElementById('titleInput');
   const authorInput = document.getElementById('authorInput');
@@ -37,7 +34,7 @@ filterBtn.addEventListener('click', () => {
     filterOptions.style.display = (filterOptions.style.display === 'block') ? 'none' : 'block';
   });
   
-  // When an option (By Genre or By Author) is clicked in the dropdown:
+  // When an option is clicked in the dropdown:
   filterOptions.addEventListener('click', (e) => {
     if (e.target.tagName.toLowerCase() === 'button') {
       const filterType = e.target.getAttribute('data-filter');
