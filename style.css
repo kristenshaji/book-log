@@ -1,0 +1,593 @@
+/* Basic reset and styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+  }
+  
+  header {
+    background: linear-gradient(90deg, #1b9a21, #b686c4);
+    color: #fff;
+    padding: 20px 40px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+
+  .header-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    border-radius: 50%;
+  }
+
+  .header-text {
+    font-family: 'Merriweather', serif;
+    font-size: 1em; /* Adjust as needed */
+    text-align: left; /* Centers the text inside the element */
+    margin-left: 225px; /* Optional: adds some left margin if needed */
+    
+  }
+  
+  .tagline {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    margin: 5px 0 0;
+    opacity: 0.9;
+  }
+  
+  header h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5em;
+    margin: 0;
+    letter-spacing: 1px;
+  }
+
+
+
+
+
+
+
+
+  /* Container for Header Buttons */
+.header-buttons {
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 20px; /* Adds space between the buttons */
+}
+
+/* Style for Both Buttons */
+.header-buttons button {
+    background-color: #fff;
+    color: #6a1b9a;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover Effects */
+.header-buttons button:hover {
+    background-color: #28a745;
+    color: white;
+}
+
+/* ✅ Ensure Responsiveness on Small Screens */
+@media (max-width: 600px) {
+    .header-buttons {
+        position: static; /* Remove absolute positioning */
+        transform: none;
+        justify-content: center; /* Center buttons */
+        flex-wrap: wrap; /* Allow wrapping if needed */
+        margin-top: 10px;
+    }
+
+    .header-buttons button {
+        width: auto;
+        max-width: 180px; /* Prevents buttons from being too wide */
+    }
+}
+
+
+
+
+
+
+  
+  main {
+    padding: 1rem;
+  }
+  
+  input[type="text"] {
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+
+  /* button on booklist*/
+  button {
+    padding: 0.5rem 1rem;
+    background: #f70303;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #6a1b9a;
+  }
+  
+  #bookList li {
+    background: white;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  #ratingInput {
+    width: 150px; /* Adjust this value as needed */
+  }
+  
+
+
+ /* Chat Icon Styles */
+.chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #045a0f;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .chat-icon:hover{
+    background-color: #06d139;
+  }
+  
+  /* Chat Window Container */
+  .chat-window-container {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 500px;
+    max-height: 400px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+  
+  /* Chat Header */
+  .chat-header {
+    background: #08ac1d;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  /* Chat Messages */
+  .chat-messages {
+    padding: 10px;
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  /* Chat Input Container */
+  .chat-input-container {
+    display: flex;
+    border-top: 1px solid #ccc;
+  }
+  
+  .chat-input-container input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-bottom-left-radius: 10px;
+  }
+  
+  .chat-input-container button {
+    padding: 10px 14px;
+    background: #0e551a;
+    color: white;
+    border: none;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+  }
+
+  .chat-input-container button:hover {
+    background: #6a1b9a;
+  }
+  
+  /* Message Styles */
+  .message {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  
+  .user-message {
+    justify-content: flex-end;
+  }
+  
+  .bot-message {
+    justify-content: flex-start;
+  }
+  
+  .profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .message-content {
+    background: #f4f4f4;
+    padding: 8px 12px;
+    border-radius: 8px;
+    max-width: 70%;
+  }
+
+
+
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  /* Form Styling */
+  #bookForm input, #bookForm button {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  #bookForm button {
+    background-color: #ee3e08;
+    color: white;
+    cursor: pointer;
+  }
+  
+  #bookForm button:hover {
+    background-color: #11c700;
+  }
+  
+  /* Button Styles for Table Actions */
+  .edit-btn {
+    background-color: #ffc107;
+    color: black;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .edit-btn:hover {
+    background-color: #25e000;
+  }
+  
+  .delete-btn:hover {
+    background-color: #06d139;
+  }
+  
+  /* Notification Styling */
+  .notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: none;
+    z-index: 2000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+  }
+
+
+
+
+  /* Container that holds both the form and filter controls */
+#book-form-section {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+
+  /* Optional: Add some spacing between form inputs */
+#bookForm input,
+#bookForm button {
+  margin-right: 10px;
+  margin-bottom: 5px; /* for wrap-around on small screens */
+}
+/* Form container styling if needed */
+.form-container {
+    flex: 1;
+  }
+
+  /* Style the form to display its inputs inline */
+#bookForm {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+/* Filters container - positioned on the right */
+.filters {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Style for filter dropdowns */
+  .filters select {
+    padding: 8px;
+    margin-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+
+
+
+
+  /* Filter Controls Container */
+.filter-dropdown {
+    margin-bottom: 10px;
+    position: relative;
+  }
+  
+  /* Filter Button */
+  #filterBtn {
+    padding: 8px 16px;
+    background-color: #f35309;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  #filterBtn:hover{
+    background-color: #06d139;
+  }
+
+  
+/* Dropdown Menu for Filter Options with Green Background */
+.filter-options {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #e4530f; /* Green background */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    z-index: 100;
+  }
+  
+  /* Style for buttons inside the filter dropdown */
+  .filter-options button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    color: white; /* White text for contrast */
+  }
+  
+  /* Hover effect for dropdown buttons */
+  .filter-options button:hover {
+    background-color: #218838; /* Darker green on hover */
+  }
+  
+  
+  /* Style for the filter dropdown selects */
+  #genre-filter,
+  #author-filter {
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+
+  
+  @media (max-width: 600px) {
+    input[type="text"] {
+      width: 60%;
+    }
+    button {
+      padding: 0.5rem;
+    }
+  }
+
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 600px) {
+    .chat-window-container {
+      width: 90%;
+      right: 5%;
+      bottom: 80px;
+      max-height: 300px;
+    }
+    
+    .chat-icon {
+      width: 50px;
+      height: 50px;
+      font-size: 1.5em;
+      bottom: 20px;
+      right: 5%;
+    }
+    
+    .chat-header {
+      padding: 8px;
+      font-size: 1em;
+    }
+    
+    .chat-input-container input {
+      padding: 6px;
+      font-size: 0.9em;
+    }
+    
+    .chat-input-container button {
+      padding: 6px 10px;
+      font-size: 0.9em;
+    }
+  }
+
+
+
+
+/*Adjustments for Tablets & Small Screens */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .header-logo {
+        margin-bottom: 10px;
+    }
+  }
+
+
+
+
+/* ✅ Adjustments for Tablets & Small Screens */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .header-logo {
+        margin-bottom: 10px;
+    }
+
+
+    .header-text {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .header-text h1 {
+        font-size: 2em; /* Reduce size for better mobile fit */
+    }
+
+    .tagline {
+        font-size: 0.9em;
+    }
+
+    /* Move Login Button Below Text */
+    #loginBtn {
+        position: static;
+        margin-top: 10px;
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
+
+
+    /* Move register Button Below Text */
+    #registerBtn {
+        position: static;
+        margin-top: 10px;
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
+}
+
+/* ✅ Adjustments for Mobile Phones */
+@media (max-width: 480px) {
+    .header-text {
+        text-align: center;
+        margin: 10px auto;
+    }
+
+    .header-text h1 {
+        font-size: 1.5em; /* Further reduce size */
+    }
+
+    .tagline {
+        font-size: 0.8em; /* Adjust tagline */
+    }
+
+    /* Move Login Button Below the Text */
+    #loginBtn {
+        padding: 6px 12px;
+        font-size: 0.8em;
+        margin-top: 10px;
+    }
+
+    /* Move Register Button Below the Text */
+    #registerBtn {
+        padding: 6px 12px;
+        font-size: 0.8em;
+        margin-top: 10px;
+    }
+}

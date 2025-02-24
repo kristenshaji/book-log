@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book Log</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="book-icon.png" type="image/x-icon">
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- Firebase and other scripts as needed -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+          <img src="book-icon.png" alt="Book Icon" class="header-logo" />
+          <p class="sub-title">Knowledge Hub &raquo; Book-Log</p>
+          <div class="header-text">
+            <h1>Literary Ledger</h1>
+            <p class="tagline">Track, Rate, and Organize &raquo; The Reading Journey</p>
+          </div>
+          <div class="header-buttons">
+            <button id="registerBtn">Register Biometrics</button>
+            <button id="loginBtn">Login with Biometrics</button>
+        </div>
+        
+        </div>
+      </header>
+      
+      
+  <main>
+    <!-- Book Entry Form -->
+    <section id="book-form-section">
+        <div class="form-container">
+            <form id="bookForm">
+                <input type="text" id="titleInput" placeholder="Enter book title" required />
+                <input type="text" id="authorInput" placeholder="Enter author name" required />
+                <input type="text" id="genreInput" placeholder="Enter genre" required />
+                <input type="number" id="ratingInput" placeholder="Enter Rating (1-5)" min="1" max="5" required />
+                <button type="submit">Add Book</button>
+            </form>
+        </div>
+
+
+        <!-- Filter Controls Container -->
+         <div class="filter-dropdown">
+            <button id="filterBtn">Filter</button>
+            <div id="filterOptions" class="filter-options" style="display: none;">
+                <button data-filter="genre">By Genre</button>
+                <button data-filter="author">By Author</button>
+            </div>
+            <!-- Hidden select elements for filtering -->
+             <select id="genre-filter" style="display: none;">
+                <option value="All">All Genres</option>
+                <!-- Options will be dynamically populated -->
+            </select>
+            <select id="author-filter" style="display: none;">
+                <option value="All">All Authors</option>
+                <!-- Options will be dynamically populated -->
+            </select>
+        </div>
+    </section>
+    
+    <!-- Book List Section -->
+     <section id="book-list-section">
+
+        <table id="bookTable">
+            <thead>
+                <tr>
+                    <th>Book Title</th>
+                    <th>Author</th>
+                    <th>Genre</th>
+                    <th>Rating</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="bookList"></tbody>
+        </table>
+    </section>
+  
+  </main>
+
+  <!-- Floating Chat Icon -->
+  <div id="chatIcon" class="chat-icon">&#128172;</div>
+
+  <!-- Chat Window Container (Hidden by Default) -->
+  <div id="chatWindowContainer" class="chat-window-container">
+    <div class="chat-header">
+      <span>Chat with Support</span>
+      <button id="closeChat">X</button>
+    </div>
+    <div id="chat-messages" class="chat-messages"></div>
+    <div class="chat-input-container">
+      <input type="text" id="user-input" placeholder="Ask your question..." required />
+      <button id="send-button">Send</button>
+    </div>
+  </div>
+
+
+  <!-- Notification Element -->
+<div id="notification" class="notification"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
