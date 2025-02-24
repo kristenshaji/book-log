@@ -35,10 +35,10 @@ Literary Ledger is a web application that lets you track, rate, and organize the
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/alvinplp2024/book-log.git
+   git clone https://github.com/kristenshaji/book-log.git
 
 
 
 ### live site link
-https://alvinplp2024.github.io/book-log/
+https://kristenshaji.github.io/book-log/
 
