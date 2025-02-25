@@ -1,4 +1,3 @@
-/* Basic reset and styling */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -29,9 +28,9 @@ body {
 
   .header-text {
     font-family: 'Merriweather', serif;
-    font-size: 1em; /* Adjust as needed */
-    text-align: left; /* Centers the text inside the element */
-    margin-left: 225px; /* Optional: adds some left margin if needed */
+    font-size: 1em; 
+    text-align: left; 
+    margin-left: 225px; 
     
   }
   
@@ -50,12 +49,6 @@ body {
   }
 
 
-
-
-
-
-
-
   /* Container for Header Buttons */
 .header-buttons {
     position: absolute;
@@ -63,7 +56,7 @@ body {
     right: 40px;
     transform: translateY(-50%);
     display: flex;
-    gap: 20px; /* Adds space between the buttons */
+    gap: 20px; 
 }
 
 /* Style for Both Buttons */
@@ -84,26 +77,20 @@ body {
     color: white;
 }
 
-/* ✅ Ensure Responsiveness on Small Screens */
 @media (max-width: 600px) {
     .header-buttons {
-        position: static; /* Remove absolute positioning */
+        position: static; 
         transform: none;
-        justify-content: center; /* Center buttons */
-        flex-wrap: wrap; /* Allow wrapping if needed */
+        justify-content: center; 
+        flex-wrap: wrap; 
         margin-top: 10px;
     }
 
     .header-buttons button {
         width: auto;
-        max-width: 180px; /* Prevents buttons from being too wide */
+        max-width: 180px; 
     }
 }
-
-
-
-
-
 
   
   main {
@@ -145,7 +132,7 @@ body {
   }
 
   #ratingInput {
-    width: 150px; /* Adjust this value as needed */
+    width: 150px; 
   }
   
 
@@ -351,18 +338,17 @@ table {
   /* Container that holds both the form and filter controls */
 #book-form-section {
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    flex-wrap: wrap; 
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
   }
 
 
-  /* Optional: Add some spacing between form inputs */
 #bookForm input,
 #bookForm button {
   margin-right: 10px;
-  margin-bottom: 5px; /* for wrap-around on small screens */
+  margin-bottom: 5px; 
 }
 /* Form container styling if needed */
 .form-container {
@@ -392,8 +378,6 @@ table {
 
 
 
-
-
   /* Filter Controls Container */
 .filter-dropdown {
     margin-bottom: 10px;
@@ -417,11 +401,11 @@ table {
   
 /* Dropdown Menu for Filter Options with Green Background */
 .filter-options {
-    display: none; /* Initially hidden */
+    display: none; 
     position: absolute;
     top: 40px;
     right: 0;
-    background-color: #e4530f; /* Green background */
+    background-color: #e4530f; 
     border: 1px solid #ccc;
     border-radius: 4px;
     z-index: 100;
@@ -436,12 +420,12 @@ table {
     background: none;
     text-align: left;
     cursor: pointer;
-    color: white; /* White text for contrast */
+    color: white; 
   }
   
   /* Hover effect for dropdown buttons */
   .filter-options button:hover {
-    background-color: #218838; /* Darker green on hover */
+    background-color: #218838; 
   }
   
   
@@ -500,8 +484,6 @@ table {
   }
 
 
-
-
 /*Adjustments for Tablets & Small Screens */
 @media (max-width: 768px) {
     .header-container {
@@ -516,9 +498,6 @@ table {
   }
 
 
-
-
-/* ✅ Adjustments for Tablets & Small Screens */
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;
@@ -537,7 +516,7 @@ table {
     }
 
     .header-text h1 {
-        font-size: 2em; /* Reduce size for better mobile fit */
+        font-size: 2em; 
     }
 
     .tagline {
@@ -562,7 +541,7 @@ table {
     }
 }
 
-/* ✅ Adjustments for Mobile Phones */
+
 @media (max-width: 480px) {
     .header-text {
         text-align: center;
@@ -570,11 +549,11 @@ table {
     }
 
     .header-text h1 {
-        font-size: 1.5em; /* Further reduce size */
+        font-size: 1.5em; 
     }
 
     .tagline {
-        font-size: 0.8em; /* Adjust tagline */
+        font-size: 0.8em; 
     }
 
     /* Move Login Button Below the Text */
