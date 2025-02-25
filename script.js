@@ -458,7 +458,7 @@ async function registerPasskey() {
           rp: { name: "Book Log App" }, 
           user: {
             id: new Uint8Array(16), 
-            name: "Kristen", // Your username
+            name: "Kristen", 
             displayName: "Kristen Varughese"
           },
           pubKeyCredParams: [{ alg: -7, type: "public-key" }],
