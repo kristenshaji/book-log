@@ -1,5 +1,4 @@
 // Firebase Configuration & Book Log Functionality
-
 const firebaseConfig = {
     apiKey: "AIzaSyA5IM05om6Tc-KJbdwY7ZcEErdDfmTyumw",
     authDomain: "booklogapp-35f3d.firebaseapp.com",
@@ -59,7 +58,6 @@ filterBtn.addEventListener('click', () => {
 
 
 // Notification Function
-
   function showNotification(message, duration = 3000) {
     const notification = document.getElementById("notification");
     if (notification) {
@@ -73,7 +71,6 @@ filterBtn.addEventListener('click', () => {
       alert(message);
     }
   }
-
 
 
 // Global Storage for Book Data
@@ -296,7 +293,6 @@ function editBook(id, book) {
       });
     }
   }
-
 
   
 // Delete Book Function
