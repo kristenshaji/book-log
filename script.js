@@ -58,18 +58,7 @@ filterBtn.addEventListener('click', () => {
   
 
 
-
-
-
-
-
-
-
-  
-
-// =========================
 // Notification Function
-// =========================
 
   function showNotification(message, duration = 3000) {
     const notification = document.getElementById("notification");
@@ -87,16 +76,12 @@ filterBtn.addEventListener('click', () => {
 
 
 
-// =========================
 // Global Storage for Book Data
-// =========================
 let booksData = [];
 
 
 
-// =========================
 // Render Books Function (with Filtering)
-// =========================
 function renderBooks(books) {
     const genreFilter = genreFilterSelect.value;
     const authorFilter = authorFilterSelect.value;
@@ -157,10 +142,9 @@ function renderBooks(books) {
       bookList.appendChild(row);
     });
   }
-  
-  // =========================
+
+
   // Populate Filter Dropdowns
-  // =========================
   function populateFilters(books) {
     const genres = new Set();
     const authors = new Set();
@@ -188,15 +172,14 @@ function renderBooks(books) {
       authorFilterSelect.appendChild(option);
     });
   }
-  
-  // =========================
+
+
   // Listen for Firebase Book Data Updates
-  // =========================
   booksRef.on('value', (snapshot) => {
     booksData = [];
     snapshot.forEach(childSnapshot => {
       const book = childSnapshot.val();
-      book.id = childSnapshot.key; // Save the unique ID
+      book.id = childSnapshot.key; 
       booksData.push(book);
     });
     renderBooks(booksData);
@@ -206,10 +189,7 @@ function renderBooks(books) {
   
 
 
-
-// =========================
 // Book Form Submission
-// =========================
   bookForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const title = titleInput.value.trim();
@@ -241,12 +221,9 @@ function renderBooks(books) {
 });
 
 
-
-// =========================
 // Listen for Firebase Book Data Updates
-// =========================
 booksRef.on('value', (snapshot) => {
-    bookList.innerHTML = ''; // Clear the table before updating
+    bookList.innerHTML = ''; 
 
     snapshot.forEach(childSnapshot => {
         const book = childSnapshot.val();
@@ -283,12 +260,12 @@ booksRef.on('value', (snapshot) => {
         editBtn.onclick = () => editBook(childSnapshot.key, book);
         actionCell.appendChild(editBtn);
 
-        actionCell.appendChild(document.createTextNode(' ')); // Space between buttons
+        actionCell.appendChild(document.createTextNode(' ')); 
 
         // Delete Button
         const deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'Delete';
-        deleteBtn.classList.add('delete-btn'); // Add CSS class for styling
+        deleteBtn.classList.add('delete-btn'); 
         deleteBtn.onclick = () => deleteBook(childSnapshot.key);
         actionCell.appendChild(deleteBtn);
 
@@ -297,9 +274,7 @@ booksRef.on('value', (snapshot) => {
     });
 });
 
-// =========================
 // Edit Book Function
-// =========================
 function editBook(id, book) {
     const newTitle = prompt("Edit book title:", book.title);
     const newAuthor = prompt("Edit author name:", book.author);
@@ -324,10 +299,7 @@ function editBook(id, book) {
 
 
   
-
-// =========================
 // Delete Book Function
-// =========================
 function deleteBook(id) {
     if (confirm("Are you sure you want to delete this book?")) {
         db.ref('books/' + id).remove((error) => {
@@ -341,16 +313,13 @@ function deleteBook(id) {
 }
 
 
-// =========================
+
 // Filter Change Event Listeners
-// =========================
 genreFilterSelect.addEventListener("change", () => renderBooks(booksData));
 authorFilterSelect.addEventListener("change", () => renderBooks(booksData));
 
   
-  // =========================
   // Gemini API Chatbot Integration
-  // =========================
   
   // Gemini API configuration – using your provided key and endpoint.
   const GEMINI_API_KEY = 'AIzaSyCkon-Ce4v5P7rPz6lRoq0aWUZvPbzOzTg';
@@ -392,9 +361,7 @@ authorFilterSelect.addEventListener("change", () => renderBooks(booksData));
       .trim();
   }
   
-  // =========================
   // Chatbot UI Functionality (Floating Chat Icon & Window)
-  // =========================
   
   // Element references for chat UI.
   const chatMessages = document.getElementById('chat-messages');
@@ -458,9 +425,7 @@ authorFilterSelect.addEventListener("change", () => renderBooks(booksData));
     }
   });
   
-  // =========================
   // Chat Window Toggling (Floating Chat Icon)
-  // =========================
   
   // Show chat window when the chat icon is clicked.
   chatIcon.addEventListener("click", () => {
@@ -474,12 +439,7 @@ authorFilterSelect.addEventListener("change", () => renderBooks(booksData));
 
   
 
-
-
-  
-// =========================
 // Biometric Registration (Creates a Passkey)
-// =========================
 async function registerPasskey() {
     if (!window.PublicKeyCredential) {
       alert("WebAuthn is not supported on this browser. Try a different device.");
@@ -495,11 +455,11 @@ async function registerPasskey() {
       const credential = await navigator.credentials.create({
         publicKey: {
           challenge: challenge,
-          rp: { name: "Book Log App" }, // Website/App name
+          rp: { name: "Book Log App" }, 
           user: {
-            id: new Uint8Array(16), // Unique user ID
-            name: "Alvin", // Your username
-            displayName: "Alvin Ondieki"
+            id: new Uint8Array(16), 
+            name: "Kristen", // Your username
+            displayName: "Kristen Varughese"
           },
           pubKeyCredParams: [{ alg: -7, type: "public-key" }],
           authenticatorSelection: { userVerification: "required" },
@@ -519,9 +479,7 @@ async function registerPasskey() {
   document.getElementById("registerBtn").addEventListener("click", registerPasskey);
 
   
-// =========================
 // Unified Biometric Authentication (WebAuthn Fingerprint Authentication)
-// =========================
 
 let isAuthenticationPending = false; // Prevent multiple authentication requests
 
@@ -537,7 +495,7 @@ async function authenticateWithBiometrics() {
         return;
     }
 
-    isAuthenticationPending = true; // Mark request as pending
+    isAuthenticationPending = true;
 
     try {
         console.log("Starting biometric authentication...");
@@ -549,9 +507,9 @@ async function authenticateWithBiometrics() {
         const credential = await navigator.credentials.get({
             publicKey: {
                 challenge: challenge,
-                timeout: 30000, // 30 seconds timeout
-                allowCredentials: [], // Use any registered credential
-                userVerification: "required" // Forces biometric verification
+                timeout: 30000, 
+                allowCredentials: [], 
+                userVerification: "required" 
             }
         });
 
@@ -570,7 +528,7 @@ async function authenticateWithBiometrics() {
             alert("Authentication failed: " + error.message);
         }
     } finally {
-        isAuthenticationPending = false; // Reset authentication state
+        isAuthenticationPending = false; 
     }
 }
 
